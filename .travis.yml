@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    -docker build -t supermaster/docker-react -f Dockerfile.dev
+
+script:
+    - docker run supermaster/docker-react npm run text -- --coverage
